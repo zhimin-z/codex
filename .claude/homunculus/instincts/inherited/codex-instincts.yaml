@@ -1,0 +1,345 @@
+# Instincts generated from https://github.com/zhimin-z/codex
+# Generated: 2026-04-01T00:10:54.041Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: codex-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 200 commits
+
+---
+id: codex-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: codex-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: codex-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: codex-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: codex-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: codex-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: codex-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: codex-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: no
+
+---
+id: codex-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: **/*.test.*
+
+---
+id: codex-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/**/*
+
+---
+id: codex-workflow-extract-shared-tool-specs-from-codex-core-to-codex-tools
+trigger: "when doing extract shared tool specs from codex core to codex tools"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Extract Shared Tool Specs From Codex Core To Codex Tools
+
+## Action
+
+Follow the extract-shared-tool-specs-from-codex-core-to-codex-tools workflow:
+1. Identify passive tool spec/model code in codex-rs/core/src/tools (e.g., spec.rs, discoverable.rs, code_mode_description.rs).
+2. Move relevant structs, enums, and builder functions to new or existing modules in codex-rs/tools/src/ (e.g., tool_spec.rs, code_mode.rs, agent_tool.rs, local_tool.rs, etc.).
+3. Add or update unit tests in sibling *_tests.rs files in codex-rs/tools/src/.
+4. Update codex-rs/tools/README.md to document the expanded crate boundary.
+5. Update codex-rs/core/src/tools/*.rs and other call sites to import and use the extracted code from codex-tools.
+6. Remove or simplify compatibility shims in codex-core.
+7. Update Cargo.toml dependencies and Cargo.lock as needed.
+8. Run and update tests to validate the migration.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: codex-rs/core/src/tools/spec.rs, codex-rs/core/src/tools/spec_tests.rs, codex-rs/core/src/tools/discoverable.rs
+
+---
+id: codex-workflow-argument-comment-lint-ci-integration-and-enforcement
+trigger: "when doing argument comment lint ci integration and enforcement"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Argument Comment Lint Ci Integration And Enforcement
+
+## Action
+
+Follow the argument-comment-lint-ci-integration-and-enforcement workflow:
+1. Update or migrate argument-comment-lint wrappers (e.g., from shell to Python).
+2. Modify CI workflows (.github/workflows/rust-ci.yml, rust-ci-full.yml, bazel.yml) to change how/where the lint runs (e.g., Bazel aspect, Cargo wrapper, platform-specific logic).
+3. Patch or update scripts (e.g., run-bazel-ci.sh, run-prebuilt-linter.py, run.py) to support new invocation patterns.
+4. Fix or update codebase to resolve new lint violations surfaced by stricter enforcement.
+5. Add or update documentation in tools/argument-comment-lint/README.md.
+6. Add or update tests for the linter and its wrappers.
+7. Validate in CI across Linux, macOS, and Windows runners.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: .github/workflows/rust-ci.yml, .github/workflows/rust-ci-full.yml, .github/workflows/bazel.yml
+
+---
+id: codex-workflow-bazel-windows-gnullvm-support-and-cross-platform-ci
+trigger: "when doing bazel windows gnullvm support and cross platform ci"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Bazel Windows Gnullvm Support And Cross Platform Ci
+
+## Action
+
+Follow the bazel-windows-gnullvm-support-and-cross-platform-ci workflow:
+1. Patch Bazel toolchain, rules_rust, rules_rs, LLVM, or V8 modules as needed for Windows gnullvm compatibility.
+2. Update .github/workflows/bazel.yml to add or adjust Windows matrix entries for build/test/clippy.
+3. Update .github/actions/setup-bazel-ci/action.yml and related scripts to support Windows-specific setup (output root, longpaths, env vars).
+4. Adjust defs.bzl and related Bazel macros to ensure correct flags and stack sizes for Windows unit test binaries.
+5. Update MODULE.bazel and MODULE.bazel.lock for new pins, patches, or SDKs.
+6. Validate by running Bazel build/test/clippy on Windows runners in CI.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: .github/workflows/bazel.yml, .github/actions/setup-bazel-ci/action.yml, MODULE.bazel
+
+---
+id: codex-workflow-remove-legacy-or-obsolete-features
+trigger: "when doing remove legacy or obsolete features"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Remove Legacy Or Obsolete Features
+
+## Action
+
+Follow the remove-legacy-or-obsolete-features workflow:
+1. Identify all code, tests, and documentation related to the obsolete feature.
+2. Delete feature-specific modules, files, and references from the codebase.
+3. Remove feature flags and related config/schema entries.
+4. Update documentation to remove references to the deleted feature.
+5. Update or clean up downstream event handling and UI logic.
+6. Validate that the codebase builds and tests pass without the feature.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: codex-rs/features/src/lib.rs, codex-rs/tui/Cargo.toml, codex-rs/tui/src/app.rs
+
