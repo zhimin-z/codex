@@ -1,0 +1,667 @@
+# Instincts generated from https://github.com/zhimin-z/codex
+# Generated: 2026-04-01T00:12:15.927Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: codex-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Commit Length
+
+## Action
+
+Write moderate-length commit messages (~56 characters)
+
+## Evidence
+
+- Average commit message length: 56 chars
+- Based on 200 commits
+
+---
+id: codex-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: codex-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: codex-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: codex-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: codex-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: codex-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: codex-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: no
+
+---
+id: codex-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~18x per month
+- Files: codex-rs/app-server-protocol/schema/typescript/v2/*, codex-rs/app-server-protocol/schema/typescript/*, **/*.test.*
+
+---
+id: codex-workflow-add-or-update-tool-or-tool-feature
+trigger: "when doing add or update tool or tool feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Add Or Update Tool Or Tool Feature
+
+## Action
+
+Follow the add-or-update-tool-or-tool-feature workflow:
+1. Edit or create files in codex-rs/core/src/tools/ (e.g., code_mode.rs, handlers/*.rs, spec.rs)
+2. Update or create runner/bridge files (e.g., code_mode_runner.cjs, code_mode_bridge.js)
+3. Update tool specs (spec.rs)
+4. Update or add tests in codex-rs/core/tests/suite/
+5. Optionally update protocol/models if tool output shape changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: codex-rs/core/src/tools/*.rs, codex-rs/core/src/tools/handlers/*.rs, codex-rs/core/src/tools/spec.rs
+
+---
+id: codex-workflow-protocol-schema-and-type-update
+trigger: "when doing protocol schema and type update"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Protocol Schema And Type Update
+
+## Action
+
+Follow the protocol-schema-and-type-update workflow:
+1. Edit JSON schema files in codex-rs/app-server-protocol/schema/json/
+2. Regenerate or update TypeScript types in codex-rs/app-server-protocol/schema/typescript/
+3. Update Rust protocol code in codex-rs/app-server-protocol/src/protocol/
+4. Update or add tests in codex-rs/app-server/tests/suite/
+5. Optionally update README.md or docs
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: codex-rs/app-server-protocol/schema/json/*.json, codex-rs/app-server-protocol/schema/typescript/**/*.ts, codex-rs/app-server-protocol/src/protocol/**/*.rs
+
+---
+id: codex-workflow-config-schema-and-loader-update
+trigger: "when doing config schema and loader update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Config Schema And Loader Update
+
+## Action
+
+Follow the config-schema-and-loader-update workflow:
+1. Edit codex-rs/core/config.schema.json
+2. Update loader/validation code in codex-rs/core/src/config/
+3. Update or add tests in codex-rs/core/src/config/config_tests.rs
+4. Update or add related Rust modules (e.g., agent_roles.rs, mod.rs)
+5. Optionally update docs/config.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: codex-rs/core/config.schema.json, codex-rs/core/src/config/*.rs, codex-rs/core/src/config/config_tests.rs
+
+---
+id: codex-workflow-feature-or-bugfix-with-test
+trigger: "when doing feature or bugfix with test"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Feature Or Bugfix With Test
+
+## Action
+
+Follow the feature-or-bugfix-with-test workflow:
+1. Edit implementation files in relevant module (e.g., src/...)
+2. Update or add tests in tests/suite/ or tests/common/
+3. Optionally update related docs or README
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: codex-rs/core/src/**/*.rs, codex-rs/app-server/src/**/*.rs, codex-rs/core/tests/suite/**/*.rs
+
+---
+id: codex-workflow-tui-feature-update-with-snapshots
+trigger: "when doing tui feature update with snapshots"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Tui Feature Update With Snapshots
+
+## Action
+
+Follow the tui-feature-update-with-snapshots workflow:
+1. Edit implementation files in codex-rs/tui/src/
+2. Update or add snapshot files in codex-rs/tui/src/snapshots/
+3. Update or add tests in codex-rs/tui/src/*/tests.rs
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: codex-rs/tui/src/**/*.rs, codex-rs/tui/src/snapshots/*.snap
+
+---
+id: codex-instinct-file-naming
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in codex-rs/core/src/tools/*.rs
+- Naming conventions specified in codeStyle
+
+---
+id: codex-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Naming conventions specified in codeStyle
+
+---
+id: codex-instinct-class-naming
+trigger: "When defining a new class or struct"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Class Naming
+
+## Action
+
+Use PascalCase for class/struct names
+
+## Evidence
+
+- Naming conventions specified in codeStyle
+
+---
+id: codex-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Naming conventions specified in codeStyle
+
+---
+id: codex-instinct-import-style
+trigger: "When importing modules in Rust code"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Import Style
+
+## Action
+
+Use relative imports
+
+## Evidence
+
+- importStyle: relative in codeStyle
+
+---
+id: codex-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- exportStyle: named in codeStyle
+
+---
+id: codex-instinct-test-file-pattern
+trigger: "When adding a new test file for TypeScript code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Test File Pattern
+
+## Action
+
+Name the file with a .test.ts suffix
+
+## Evidence
+
+- testing.filePattern: *.test.ts
+- Pattern in sdk/typescript/
+
+---
+id: codex-instinct-test-framework
+trigger: "When writing tests for TypeScript code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Test Framework
+
+## Action
+
+Use Jest as the testing framework
+
+## Evidence
+
+- testing.framework: jest
+- jest.mock pattern in code
+
+---
+id: codex-instinct-test-types
+trigger: "When designing tests for a feature"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Test Types
+
+## Action
+
+Include unit, integration, and e2e tests as appropriate
+
+## Evidence
+
+- testing.testTypes: unit, integration, e2e
+
+---
+id: codex-instinct-test-location-mixed
+trigger: "When adding tests to the repository"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Test Location Mixed
+
+## Action
+
+Place tests in both src and tests directories as appropriate
+
+## Evidence
+
+- architecture.folderStructure.testLocation: mixed
+- Pattern in codex-rs/core/tests/suite/
+
+---
+id: codex-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Commit Prefix
+
+## Action
+
+Start the commit message with a prefix: feat, fix, or chore
+
+## Evidence
+
+- Pattern in commits: 'feat: ...', 'fix: ...', 'chore: ...'
+
+---
+id: codex-instinct-commit-format-scope
+trigger: "When the commit is specific to a module or feature"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Commit Format Scope
+
+## Action
+
+Optionally include a scope in parentheses after the prefix (e.g., fix(otel): ...)
+
+## Evidence
+
+- Commit example: 'fix(otel): make HTTP trace export survive app-server runtimes (#14300)'
+
+---
+id: codex-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (average ~56 characters)
+
+## Evidence
+
+- commits.averageLength: 56
+
+---
+id: codex-instinct-add-or-update-tool
+trigger: "When someone wants to add a new tool, rename a tool, or enhance tool functionality"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Add Or Update Tool
+
+## Action
+
+Edit or create files in codex-rs/core/src/tools/, update runner/bridge files, update tool specs, and add or update tests in codex-rs/core/tests/suite/
+
+## Evidence
+
+- Workflow: add-or-update-tool-or-tool-feature
+- Pattern in files: codex-rs/core/src/tools/*.rs, codex-rs/core/tests/suite/code_mode.rs
+
+---
+id: codex-instinct-protocol-schema-update
+trigger: "When someone wants to add or modify API fields, event payloads, or protocol types"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Protocol Schema Update
+
+## Action
+
+Edit JSON schema files, update TypeScript types, update Rust protocol code, and update or add tests and optionally docs
+
+## Evidence
+
+- Workflow: protocol-schema-and-type-update
+- Pattern in files: codex-rs/app-server-protocol/schema/json/*.json, codex-rs/app-server-protocol/schema/typescript/**/*.ts
+
+---
+id: codex-instinct-config-schema-update
+trigger: "When someone wants to add or change configuration options"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Config Schema Update
+
+## Action
+
+Edit config.schema.json, update loader/validation code, update or add tests, update related Rust modules, and optionally update docs
+
+## Evidence
+
+- Workflow: config-schema-and-loader-update
+- Pattern in files: codex-rs/core/config.schema.json, codex-rs/core/src/config/*.rs
+
+---
+id: codex-instinct-feature-or-bugfix-with-test
+trigger: "When someone wants to add a new feature or fix a bug and ensure it's covered by tests"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Feature Or Bugfix With Test
+
+## Action
+
+Edit implementation files in relevant module, update or add tests in tests/suite/ or tests/common/, and optionally update related docs or README
+
+## Evidence
+
+- Workflow: feature-or-bugfix-with-test
+- Pattern in files: codex-rs/core/src/**/*.rs, codex-rs/core/tests/suite/**/*.rs
+
+---
+id: codex-instinct-tui-feature-snapshots
+trigger: "When someone wants to add or change a TUI feature and ensure UI output is correct"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: zhimin-z/codex
+---
+
+# Codex Instinct Tui Feature Snapshots
+
+## Action
+
+Edit implementation files in codex-rs/tui/src/, update or add snapshot files in codex-rs/tui/src/snapshots/, and update or add tests
+
+## Evidence
+
+- Workflow: tui-feature-update-with-snapshots
+- Pattern in files: codex-rs/tui/src/**/*.rs, codex-rs/tui/src/snapshots/*.snap
+
