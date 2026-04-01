@@ -1,0 +1,342 @@
+# Instincts generated from https://github.com/zhimin-z/codex
+# Generated: 2026-04-01T00:38:43.812Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: codex-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 200 commits
+
+---
+id: codex-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: codex-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: codex-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: codex-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: codex-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: codex-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: codex-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: no
+
+---
+id: codex-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/schema.*
+
+---
+id: codex-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~18x per month
+- Files: codex-rs/app-server-protocol/schema/typescript/v2/*, codex-rs/app-server-protocol/schema/typescript/*, **/*.test.*
+
+---
+id: codex-workflow-protocol-schema-and-types-update
+trigger: "when doing protocol schema and types update"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Protocol Schema And Types Update
+
+## Action
+
+Follow the protocol-schema-and-types-update workflow:
+1. Edit or add JSON schema files in codex-rs/app-server-protocol/schema/json/
+2. Regenerate or update corresponding TypeScript types in codex-rs/app-server-protocol/schema/typescript/
+3. Update Rust protocol code in codex-rs/app-server-protocol/src/protocol/
+4. Update or add related tests in codex-rs/app-server/tests/suite/v2/
+5. Update core/protocol models if needed (codex-rs/protocol/src/models.rs, codex-rs/protocol/src/protocol.rs)
+6. Update documentation (optional, e.g., codex-rs/app-server/README.md)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: codex-rs/app-server-protocol/schema/json/*.json, codex-rs/app-server-protocol/schema/typescript/**/*.ts, codex-rs/app-server-protocol/src/protocol/**/*.rs
+
+---
+id: codex-workflow-tool-spec-and-handler-update
+trigger: "when doing tool spec and handler update"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Tool Spec And Handler Update
+
+## Action
+
+Follow the tool-spec-and-handler-update workflow:
+1. Edit or add tool handler code in codex-rs/core/src/tools/handlers/
+2. Update tool spec in codex-rs/core/src/tools/spec.rs
+3. Update or add related code in codex-rs/core/src/tools/*.rs (e.g., code_mode.rs, context.rs, parallel.rs)
+4. Update or add JS/bridge files if needed (e.g., code_mode_bridge.js, code_mode_runner.cjs)
+5. Update or add tests in codex-rs/core/tests/suite/
+6. Update protocol models if tool output changes (codex-rs/protocol/src/models.rs)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: codex-rs/core/src/tools/handlers/*.rs, codex-rs/core/src/tools/spec.rs, codex-rs/core/src/tools/*.rs
+
+---
+id: codex-workflow-feature-development-with-tests
+trigger: "when doing feature development with tests"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Feature Development With Tests
+
+## Action
+
+Follow the feature-development-with-tests workflow:
+1. Implement feature in relevant Rust/JS files (e.g., codex-rs/core/src/, codex-rs/tui/src/)
+2. Update or add tests in codex-rs/core/tests/suite/ or codex-rs/tui/src/snapshots/
+3. Update documentation if applicable (e.g., README.md, docs/*.md)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: codex-rs/core/src/**/*.rs, codex-rs/core/tests/suite/*.rs, codex-rs/tui/src/**/*.rs
+
+---
+id: codex-workflow-config-schema-and-implementation-update
+trigger: "when doing config schema and implementation update"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Config Schema And Implementation Update
+
+## Action
+
+Follow the config-schema-and-implementation-update workflow:
+1. Edit codex-rs/core/config.schema.json
+2. Update config handling code in codex-rs/core/src/config/
+3. Update or add related tests in codex-rs/core/src/config/config_tests.rs or codex-rs/core/tests/suite/
+4. Update documentation if needed (e.g., docs/config.md)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: codex-rs/core/config.schema.json, codex-rs/core/src/config/*.rs, codex-rs/core/src/config/config_tests.rs
+
+---
+id: codex-workflow-agent-schema-and-behavior-update
+trigger: "when doing agent schema and behavior update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/zhimin-z/codex
+---
+
+# Codex Workflow Agent Schema And Behavior Update
+
+## Action
+
+Follow the agent-schema-and-behavior-update workflow:
+1. Edit agent schema or role files (e.g., codex-rs/core/config.schema.json, codex-rs/core/src/agent/role.rs)
+2. Update agent config/behavior code (e.g., codex-rs/core/src/config/agent_roles.rs, codex-rs/core/src/tools/handlers/multi_agents.rs)
+3. Update or add tests (e.g., codex-rs/core/tests/suite/agent_jobs.rs, codex-rs/core/tests/suite/subagent_notifications.rs)
+4. Update documentation if applicable
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: codex-rs/core/config.schema.json, codex-rs/core/src/agent/role.rs, codex-rs/core/src/config/agent_roles.rs
+
